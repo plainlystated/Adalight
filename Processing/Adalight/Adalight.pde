@@ -38,7 +38,7 @@ static final int pixelSize = 20;
 // look at the reported frame rates in the Processing output console,
 // and run with whichever works best for you.
 
-static final boolean useFullScreenCaps = true;
+static final boolean useFullScreenCaps = false;
 
 // Serial device timeout (in milliseconds), for locating Arduino device
 // running the corresponding LEDstream code.  See notes later in the code...
@@ -66,7 +66,8 @@ static final int timeout = 5000; // 5 seconds
 // For example, '9,6' = 9 LEDs across, 6 LEDs down.
 
 static final int displays[][] = new int[][] {
-   {0,9,6} // Screen 0, 9 LEDs across, 6 LEDs down
+   {0, 20, 13}
+   //{0,9,6} // Screen 0, 9 LEDs across, 6 LEDs down
 //,{1,9,6} // Screen 1, also 9 LEDs across and 6 LEDs down
 };
 
@@ -85,12 +86,34 @@ static final int displays[][] = new int[][] {
 // accommodate a monitor stand.  Modify this to match your own setup:
 
 static final int leds[][] = new int[][] {
-  {0,3,5}, {0,2,5}, {0,1,5}, {0,0,5}, // Bottom edge, left half
-  {0,0,4}, {0,0,3}, {0,0,2}, {0,0,1}, // Left edge
-  {0,0,0}, {0,1,0}, {0,2,0}, {0,3,0}, {0,4,0}, // Top edge
-           {0,5,0}, {0,6,0}, {0,7,0}, {0,8,0}, // More top edge
-  {0,8,1}, {0,8,2}, {0,8,3}, {0,8,4}, // Right edge
-  {0,8,5}, {0,7,5}, {0,6,5}, {0,5,5}  // Bottom edge, right half
+  // Bottom edge, left half
+  {0,3,12}, {0,2,12}, {0,1,12}, {0,0,12},
+
+  // Left edge
+  {0,0,11}, {0,0,10}, {0,0,9}, {0,0,8}, {0,0,7},
+  {0,0,6}, {0,0,5}, {0,0,4}, {0,0,3}, {0,0,2},
+  {0,0,1},
+
+  // Top edge
+  {0,0,0}, {0,1,0}, {0,2,0}, {0,3,0}, {0,4,0},
+  {0,5,0}, {0,6,0}, {0,7,0}, {0,8,0}, {0,9,0},
+  {0,10,0}, {0,11,0}, {0,12,0}, {0,13,0}, {0,14,0},
+  {0,15,0}, {0,16,0}, {0,17,0}, {0,18,0}, {0,19,0},
+
+  // Right edge
+  {0,19,1}, {0,19,2} {0,19,3}, {0,19,4}, {0,19,5},
+  {0,19,6}, {0,19,7}, {0,19,8}, {0,19,9}, {0,19,10},
+  {0,19,11},
+
+  // Bottom edge, right half
+  {0,19,12}, {0,19,11}, {0,19,10}, {0,19,9}
+
+  /*{0,3,5}, {0,2,5}, {0,1,5}, {0,0,5}, // Bottom edge, left half*/
+  /*{0,0,4}, {0,0,3}, {0,0,2}, {0,0,1}, // Left edge*/
+  /*{0,0,0}, {0,1,0}, {0,2,0}, {0,3,0}, {0,4,0}, // Top edge*/
+  /*         {0,5,0}, {0,6,0}, {0,7,0}, {0,8,0}, // More top edge*/
+  /*{0,8,1}, {0,8,2}, {0,8,3}, {0,8,4}, // Right edge*/
+  /*{0,8,5}, {0,7,5}, {0,6,5}, {0,5,5}  // Bottom edge, right half*/
 
 /* Hypothetical second display has the same arrangement as the first.
    But you might not want both displays completely ringed with LEDs;
